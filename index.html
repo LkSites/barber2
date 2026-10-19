@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
+  <title>Barber Club | Agendamento</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="#inicio">BARBER<span>CLUB.</span></a>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#agendar">Agendar</a>
+    <a href="#painel">Agenda do barbeiro</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div>
+    <span class="tag">BARBEARIA PREMIUM</span>
+    <h1>SEU ESTILO.<br><span>NOSSA ASSINATURA.</span></h1>
+    <p>Cortes modernos, barba impecável e atendimento personalizado.</p>
+    <a href="#agendar" class="btn">AGENDAR MEU HORÁRIO ↗</a>
+  </div>
+</section>
+
+
+<div class="service-grid">
+  <article class="service">
+    <h3>Corte masculino</h3>
+    <p>Corte clássico, degradê e acabamento.</p>
+    <strong>R$ 40,00</strong>
+    <button class="choose-service" data-service="Corte masculino">Escolher</button>
+  </article>
+
+  <article class="service">
+    <h3>Barba premium</h3>
+    <p>Modelagem e acabamento profissional.</p>
+    <strong>R$ 25,00</strong>
+    <button class="choose-service" data-service="Barba premium">Escolher</button>
+  </article>
+
+  <article class="service">
+    <h3>Cabelo + barba</h3>
+    <p>Uma experiência completa.</p>
+    <strong>R$ 60,00</strong>
+    <button class="choose-service" data-service="Cabelo + barba">Escolher</button>
+  </article>
+</div>
+
+
+<section class="section booking-section" id="agendar">
+  <h2>AGENDE SEU HORÁRIO</h2>
+  <p class="subtitle">Escolha o dia e o horário desejado.</p>
+
+  <form id="bookingForm" class="booking-form">
+    <label for="name">Nome completo</label>
+    <input id="name" required maxlength="100" placeholder="Seu nome">
+
+    <label for="phone">WhatsApp</label>
+    <input id="phone" type="tel" required maxlength="25"
+      placeholder="(55) 99999-9999">
+
+    <label for="service">Serviço</label>
+    <select id="service" required>
+      <option value="">Selecione um serviço</option>
+      <option value="Corte masculino">Corte masculino — R$ 40</option>
+      <option value="Barba premium">Barba premium — R$ 25</option>
+      <option value="Cabelo + barba">Cabelo + barba — R$ 60</option>
+    </select>
+
+    <label for="barber">Barbeiro</label>
+    <select id="barber" required>
+      <option value="Barbeiro 1">Barbeiro 1</option>
+      <option value="Barbeiro 2">Barbeiro 2</option>
+    </select>
+
+    <label for="date">Data</label>
+    <input id="date" type="date" required>
+
+    <label for="time">Horários disponíveis</label>
+    <select id="time" required>
+      <option value="">Selecione a data primeiro</option>
+    </select>
+
+    <label for="notes">Observações (opcional)</label>
+    <textarea id="notes" maxlength="500"
+      placeholder="Ex.: degradê baixo"></textarea>
+
+    <button class="btn" type="submit">SOLICITAR AGENDAMENTO</button>
+    <button class="btn whatsapp-btn" id="sendWhatsApp" type="button">
+      ENVIAR PELO WHATSAPP
+    </button>
+    <p class="notice" id="bookingMessage" role="status"></p>
+  </form>
+</section>
+
+<section class="section admin-section" id="painel">
+  <div class="admin-heading">
+    <div>
+      <span class="tag">ÁREA ADMINISTRATIVA</span>
+      <h2>AGENDA DO BARBEIRO</h2>
+      <p class="subtitle">Consulte os clientes de cada dia.</p>
+    </div>
+    <div class="date-filter">
+      <label for="filterDate">Dia da agenda</label>
+      <input type="date" id="filterDate">
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span>Agendamentos</span>
+      <strong id="totalCount">0</strong>
+    </div>
+    <div class="stat">
+      <span>Pendentes</span>
+      <strong id="pendingCount">0</strong>
+    </div>
+    <div class="stat">
+      <span>Confirmados</span>
+      <strong id="confirmedCount">0</strong>
+    </div>
+    <div class="stat">
+      <span>Concluídos</span>
+      <strong id="completedCount">0</strong>
+    </div>
+  </div>
+
+  <div class="list-toolbar">
+    <h3 id="agendaTitle">Agendamentos do dia</h3>
+    <select id="statusFilter" aria-label="Filtrar por status">
+      <option value="todos">Todos os status</option>
+      <option value="Pendente">Pendentes</option>
+      <option value="Confirmado">Confirmados</option>
+      <option value="Concluído">Concluídos</option>
+      <option value="Cancelado">Cancelados</option>
+    </select>
+  </div>
+
+  <div id="appointmentsList" class="appointments-list"></div>
+
+  <p class="admin-note">
+    Demonstração: esta agenda fica salva somente neste navegador.
+  </p>
+</section>
+
+<footer>
+  <a class="logo" href="#inicio">BARBER<span>CLUB.</span></a>
+  <p>Um corte faz a diferença.</p>
+  <small>Site demonstrativo desenvolvido pela LkSites.</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
